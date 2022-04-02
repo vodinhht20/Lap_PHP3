@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-
-    // protected $table = 'products';
+    // protected $with = ['news'];
+    protected $table = 'products';
 
     // public function category()
     // {
@@ -25,5 +25,15 @@ class Product extends Model
             'category_id'
         );
     }
+
+    // public function news()
+    // {
+    //     return $this->belongsToMany(
+    //         News::class,
+    //         'new_products',
+    //         'product_id',
+    //         'new_id'
+    //     );
+    // }
 
 }

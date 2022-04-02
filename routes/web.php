@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NewController;
 use App\Http\Controllers\ProductController;
 // Su dung Request $request trong callback cua route
 
@@ -58,14 +59,14 @@ Route::get('/', function () {
             'age' => 20,
             'class' => 'WE16201',
             'id' => '1',
-            'avatar' => "https://iap.poly.edu.vn/user/ph/PH13025.jpg"
+            'avatar' => ""
         ],
         [
             'name' => 'Tuannda3',
             'age' => 20,
             'class' => 'WE16201',
             'id' => '2',
-            'avatar' => "https://iap.poly.edu.vn/user/ph/PH13025.jpg"
+            'avatar' => ""
         ],
     ];
     // dd($students);
@@ -116,3 +117,8 @@ Route::prefix('/products')->name('products.')->group(function () {
     // Xoa
     Route::delete('/{product}', [ProductController::class, 'destroy'])->name('delete');
 });
+
+Route::get('/list-new', [NewController::class, 'index'])->name('new.index');
+Route::post('/ajax-remove-new', [NewController::class, 'remove'])->name('new.remove');
+Route::get('/edit-new/{id}', [NewController::class, 'showUpdate'])->name('new.edit');
+Route::post('/update-new/{id}', [NewController::class, 'update'])->name('new.update');

@@ -56,6 +56,11 @@
                         <p>Product</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('new.index')}}" class="nav-link {{Route::is('new.index') ? 'active' : ''}}">
+                        <p>News</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
